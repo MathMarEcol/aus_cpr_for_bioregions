@@ -1,0 +1,47 @@
+#+TITLE: Readme
+
+* Phytoplankton and Zooplankton CPR data around Australia
+:PROPERTIES:
+:ID:       org:a908d8ff-c449-4a85-9e5e-4e53e0251630
+:END:
+This folder contains data and scripts for generating long form data.frames.
+
+The data covers a range of surveys (ProjectNumber), and provides the Latitude, Longitude, SampleDateUTC of each sample.
+
+At each sample site, taxa (TaxonGroup, TaxonName) with non-zero abunances are listed, in counts per cubic meter  (ZAbund_m3).
+
+Each survey uses different methodology and searched for different taxa, so pivoting to wide format must be done separately for each survey to avoid absences caused by a taxa simply not being searched for by a survey.
+Additionally, different methodology means that ZAbund_m3 are not comparable across surveys, even if the taxon is present in both surveys.
+* Usage
+:PROPERTIES:
+:ID:       org:fec2a650-4d67-4846-9290-016ad10fec9b
+:END:
+
+#+begin_src R
+
+  library(lutz)
+  library(glue)
+  library(lubridate)
+  library(data.table)
+  library(tidyverse)
+##full path to current directory
+root_dir <- "/QRISdata/Q1215/AusCPR/"
+stopifnot(
+  file.exists(glue::glue("{root_dir}/phyto_other_phil_feb21.csv")),
+  file.exists(glue::glue("{root_dir}/Brett_data_feb2020.csv")),
+  file.exists(glue::glue("{root_dir}/zoop_phil_feb21.csv")),
+  file.exists(glue::glue("{root_dir}/PhytoDataPhilFeb21.R")),
+  file.exists(glue::glue("{root_dir}/zooDataPhilMar21.R"))
+  )
+
+
+source(glue::glue("{root_dir}/PhytoDataPhilFeb21.R"))
+
+phyto_df <- load_phyto_data(root_dir)
+
+source(glue::glue("{root_dir}/zooDataPhilMar21.R"))
+
+zoo_df <- load_zoo_data(root_dir)
+
+
+#+end_src
