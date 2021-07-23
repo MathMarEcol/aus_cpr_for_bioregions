@@ -124,7 +124,7 @@ cprPdat <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox
 
 # Bring in Change Log
 cprPcl <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/master/Plankton/RawData/CPR_Phyto_ChangeLog.csv", na = "") %>%
-  rename(TaxonName = TAXON_NAME, StartDate = START_DATE, ParentName = PARENT_NAME)
+  rename(TaxonName = TAXONNAME, StartDate = STARTDATE, ParentName = PARENTNAME)
 
 #### CPR PHYTO ABUND SPECIES ####
 

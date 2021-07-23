@@ -138,7 +138,7 @@ cprZdat <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox
 
 # Bring in Change Log
 cprZcl <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/master/Plankton/RawData/CPR_Zoop_ChangeLog.csv", na = "") %>%
-  rename(TaxonName = TAXON_NAME, StartDate = START_DATE, ParentName = PARENT_NAME)
+  rename(TaxonName = TAXONNAME, StartDate = STARTDATE, ParentName = PARENTNAME)
 
 # Check at what level we need change log
 clc <- cprZcl %>% 
