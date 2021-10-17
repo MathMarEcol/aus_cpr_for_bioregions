@@ -22,7 +22,7 @@ getBGCSamples <- function(){
 BGCSamp <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/master/Plankton/RawData/BGC_Trip.csv", na = "") %>%
   dplyr::filter(grepl("Z", SAMPLETYPE)) %>%
   dplyr::filter(PROJECTNAME %in% c("NRS", "NRS Ichthyoplankton", "NWS", "IIOE")) %>%
-    rename(ProjectName = PROJECTNAME, Station = STATION, StationCode = STATIONCODE, Latitude = LATITUDE, Longitude = LONGITUDE, SampleDateLocal = SAMPLEDATELOCAL,
+    rename(ProjectName = PROJECTNAME, Station = STATIONNAME, StationCode = STATIONCODE, Latitude = LATITUDE, Longitude = LONGITUDE, SampleDateLocal = SAMPLEDATELOCAL,
            BGCcode = TRIP_CODE, Biomass_mgm3 = BIOMASS_MGM3) %>%
   dplyr::filter(!is.na(Latitude) & !is.na(Longitude)) %>%
     mutate(Year = lubridate::year(SampleDateLocal),
@@ -138,7 +138,7 @@ cprZdat <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox
 
 # Bring in Change Log
 cprZcl <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/master/Plankton/RawData/CPR_Zoop_ChangeLog.csv", na = "") %>%
-  rename(TaxonName = TAXONNAME, StartDate = STARTDATE, ParentName = PARENTNAME)
+  rename(TaxonName = TAXON_NAME, StartDate = STARTDATE, ParentName = PARENT_NAME)
 
 # Check at what level we need change log
 clc <- cprZcl %>% 
