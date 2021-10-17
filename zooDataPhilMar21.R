@@ -36,7 +36,7 @@ BGCSamp <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox
 
 getBGCZooData <- function(){
   BGCZdat <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/master/Plankton/RawData/BGC_Zoop_Raw.csv", na = "") %>%
-    rename(BGCcode = TRIP_CODE, TaxonName = TAXON_NAME, Copepod = TAXON_GROUP, TaxonGroup = TAXON_GRP01,
+    rename(BGCcode = TRIP_CODE, TaxonName = TAXON_NAME, Copepod = COPEPOD, TaxonGroup = TAXON_GROUP,
            Genus = GENUS, Species = SPECIES, ZAbund_m3 = ZOOP_ABUNDANCE_M3)
   return(BGCZdat)
 }

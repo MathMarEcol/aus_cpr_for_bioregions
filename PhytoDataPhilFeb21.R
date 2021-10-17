@@ -33,7 +33,7 @@ BGCPdat <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox
 
 # Bring in Change Log
 BGCPcl <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/master/Plankton/RawData/BGC_Phyto_ChangeLog.csv", na = "") %>%
-  rename(TaxonName = TAXON_NAME, StartDate = START_DATE, ParentName = PARENT_NAME)
+  rename(TaxonName = TAXON_NAME, StartDate = STARTDATE, ParentName = PARENT_NAME)
 
 #### Species Abund ####
 
