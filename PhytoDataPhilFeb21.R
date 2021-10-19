@@ -32,7 +32,7 @@ BGCPdat <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox
          Cells_L = CELL_L, Biovolume_uM3_L = BIOVOLUME_UM3L)
 
 # Bring in Change Log
-BGCPcl <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/master/Plankton/RawData/BGC_Phyto_ChangeLog.csv", na = "", col_select = 1:3)) %>%
+BGCPcl <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/master/Plankton/RawData/BGC_Phyto_ChangeLog.csv", na = "", col_select = 1:3) %>%
   rename(TaxonName = TAXON_NAME, StartDate = STARTDATE, ParentName = PARENT_NAME)
 
 #### Species Abund ####
