@@ -19,7 +19,7 @@
 
 # Bring in all BGC zooplankton samples
 getBGCSamples <- function(){
-BGCSamp <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/cfc7ad6a6e51b2f6f6c24b5106274be4a4031f98/Plankton/RawData/BGC_Trip.csv", na = "") %>%
+BGCSamp <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/c6cbc0166a4d1c13f336923bac3dbe052eaad172/Plankton/RawData/BGC_Trip.csv", na = "") %>%
   dplyr::filter(grepl("Z", SAMPLETYPE)) %>%
   dplyr::filter(PROJECTNAME %in% c("NRS", "NRS Ichthyoplankton", "NWS", "IIOE")) %>%
     rename(ProjectName = PROJECTNAME, Station = STATIONNAME, StationCode = STATIONCODE, Latitude = LATITUDE, Longitude = LONGITUDE, SampleDateLocal = SAMPLEDATELOCAL,
@@ -35,7 +35,7 @@ BGCSamp <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox
 }
 
 getBGCZooData <- function(){
-  BGCZdat <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/cfc7ad6a6e51b2f6f6c24b5106274be4a4031f98/Plankton/RawData/BGC_Zoop_Raw.csv", na = "") %>%
+  BGCZdat <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/c6cbc0166a4d1c13f336923bac3dbe052eaad172/Plankton/RawData/BGC_Zoop_Raw.csv", na = "") %>%
     rename(BGCcode = TRIP_CODE, TaxonName = TAXON_NAME, Copepod = COPEPOD, TaxonGroup = TAXON_GROUP,
            Genus = GENUS, Species = SPECIES, ZAbund_m3 = ZOOP_ABUNDANCE_M3)
   return(BGCZdat)
@@ -47,7 +47,7 @@ BGCSamp <- getBGCSamples()
 BGCZdat <- getBGCZooData()
 
 # Bring in Change Log
-nrsZcl <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/cfc7ad6a6e51b2f6f6c24b5106274be4a4031f98/Plankton/RawData/BGC_Zoop_ChangeLog.csv", na = "") %>%
+nrsZcl <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/c6cbc0166a4d1c13f336923bac3dbe052eaad172/Plankton/RawData/BGC_Zoop_ChangeLog.csv", na = "") %>%
   rename(TaxonName = TAXON_NAME, StartDate = STARTDATE, ParentName = PARENT_NAME)
 
 # Check at what level we need change log
@@ -123,7 +123,7 @@ BGCRawZ1 <- BGCCop1 %>%
 zoo_process_cpr <- function(){
 # Bring in CPR zoo
 # Bring in all CPR zooplankton samples
-cprZsamp <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/cfc7ad6a6e51b2f6f6c24b5106274be4a4031f98/Plankton/RawData/CPR_Samp.csv", na = "") %>%
+cprZsamp <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/c6cbc0166a4d1c13f336923bac3dbe052eaad172/Plankton/RawData/CPR_Samp.csv", na = "") %>%
   dplyr::filter( grepl("Z", SAMPLETYPE)) %>%
   rename(Sample = SAMPLE, BGCcode = TRIP_CODE, Latitude = LATITUDE, Longitude = LONGITUDE, SampleDateUTC = SAMPLEDATEUTC) %>%
   mutate(Year = lubridate::year(SampleDateUTC),
@@ -132,12 +132,12 @@ cprZsamp <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbo
          Time_24hr = str_sub(SampleDateUTC, -8, -1)) # hms doesn"t seem to work on 00:00:00 times
 
 # Bring in plankton summary data
-cprZdat <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/cfc7ad6a6e51b2f6f6c24b5106274be4a4031f98/Plankton/RawData/CPR_Zoop_Raw.csv", na = "") %>%
+cprZdat <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/c6cbc0166a4d1c13f336923bac3dbe052eaad172/Plankton/RawData/CPR_Zoop_Raw.csv", na = "") %>%
   rename(Sample = SAMPLE, TaxonName = TAXON_NAME, Copepod = COPEPOD, TaxonGroup = TAXON_GROUP,
          Genus = GENUS, Species = SPECIES, ZAbund_m3 = ZOOP_ABUNDANCE_M3)
 
 # Bring in Change Log
-cprZcl <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/cfc7ad6a6e51b2f6f6c24b5106274be4a4031f98/Plankton/RawData/CPR_Zoop_ChangeLog.csv", na = "") %>%
+cprZcl <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/c6cbc0166a4d1c13f336923bac3dbe052eaad172/Plankton/RawData/CPR_Zoop_ChangeLog.csv", na = "") %>%
   rename(TaxonName = TAXON_NAME, StartDate = STARTDATE, ParentName = PARENT_NAME)
 
 # Check at what level we need change log

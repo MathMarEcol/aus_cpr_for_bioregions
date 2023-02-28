@@ -17,7 +17,7 @@
 #### BGC Phytoplankton #### #################################################################################################################################
 phyto_process_nrs <- function(){
 # Bring in all BGC phytoplankton samples
-BGCPsamp <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/cfc7ad6a6e51b2f6f6c24b5106274be4a4031f98/Plankton/RawData/BGC_Trip.csv", na = "") %>%
+BGCPsamp <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/c6cbc0166a4d1c13f336923bac3dbe052eaad172/Plankton/RawData/BGC_Trip.csv", na = "") %>%
   dplyr::filter( grepl("P", SAMPLETYPE)) %>%
   dplyr::filter(PROJECTNAME %in% c("NRS", "NRS Ichthyoplankton", "NWS", "IIOE")) %>%
     rename(ProjectName = PROJECTNAME, Station = STATIONNAME, StationCode = STATIONCODE, Latitude = LATITUDE, Longitude = LONGITUDE, SampleDateLocal = SAMPLEDATELOCAL,
@@ -27,12 +27,12 @@ BGCPsamp <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbo
           SampleDateUTC = with_tz(force_tzs(SampleDateLocal, tz, roll = TRUE), "UTC")) 
 
 # Bring in plankton data
-BGCPdat <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/cfc7ad6a6e51b2f6f6c24b5106274be4a4031f98/Plankton/RawData/BGC_Phyto_Raw.csv", na = "") %>%
+BGCPdat <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/c6cbc0166a4d1c13f336923bac3dbe052eaad172/Plankton/RawData/BGC_Phyto_Raw.csv", na = "") %>%
   rename(BGCcode = TRIP_CODE, TaxonName = TAXON_NAME, TaxonGroup = TAXON_GROUP, Genus = GENUS, Species = SPECIES,
          Cells_L = CELL_L, Biovolume_uM3_L = BIOVOLUME_UM3L)
 
 # Bring in Change Log
-BGCPcl <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/cfc7ad6a6e51b2f6f6c24b5106274be4a4031f98/Plankton/RawData/BGC_Phyto_ChangeLog.csv", na = "", col_select = 1:3) %>%
+BGCPcl <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/c6cbc0166a4d1c13f336923bac3dbe052eaad172/Plankton/RawData/BGC_Phyto_ChangeLog.csv", na = "", col_select = 1:3) %>%
   rename(TaxonName = TAXON_NAME, StartDate = STARTDATE, ParentName = PARENT_NAME)
 
 #### Species Abund ####
@@ -109,7 +109,7 @@ BGCPhyto <- BGCSpecP1 %>%
 #### CPR Phytoplankton #######################################################################################################################################################
 phyto_process_cpr <- function(){
 # Bring in all CPR phytoplankton samples
-cprPsamp <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/cfc7ad6a6e51b2f6f6c24b5106274be4a4031f98/Plankton/RawData/CPR_Samp.csv", na = "") %>%
+cprPsamp <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/c6cbc0166a4d1c13f336923bac3dbe052eaad172/Plankton/RawData/CPR_Samp.csv", na = "") %>%
   dplyr::filter( grepl("P", SAMPLETYPE)) %>%
 ## cprPsamp <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/9b4f5865af778164fbefc480913bcca3b17be127/Plankton/RawData/PsampCPR.csv", na = "(null)") %>%
   rename(BGCcode = TRIP_CODE, Sample = SAMPLE, Latitude = LATITUDE, Longitude = LONGITUDE, SampleDateUTC = SAMPLEDATEUTC) %>%
@@ -119,11 +119,11 @@ cprPsamp <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbo
          Time_24hr = str_sub(SampleDateUTC, -8, -1)) # hms doesn"t seem to work on 00:00:00 times
 
 # Bring in plankton data
-cprPdat <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/cfc7ad6a6e51b2f6f6c24b5106274be4a4031f98/Plankton/RawData/CPR_Phyto_Raw.csv", na = "") %>%
+cprPdat <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/c6cbc0166a4d1c13f336923bac3dbe052eaad172/Plankton/RawData/CPR_Phyto_Raw.csv", na = "") %>%
   rename(Sample = SAMPLE, TaxonName = TAXON_NAME, TaxonGroup = TAXON_GROUP, Genus = GENUS, Species = SPECIES, PAbun_m3 = PHYTO_ABUNDANCE_M3, BioVolume_um3_m3 = BIOVOL_UM3M3)
 
 # Bring in Change Log
-cprPcl <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/cfc7ad6a6e51b2f6f6c24b5106274be4a4031f98/Plankton/RawData/CPR_Phyto_ChangeLog.csv", na = "") %>%
+cprPcl <- read_csv("https://raw.githubusercontent.com/PlanktonTeam/IMOS_Toolbox/c6cbc0166a4d1c13f336923bac3dbe052eaad172/Plankton/RawData/CPR_Phyto_ChangeLog.csv", na = "") %>%
   rename(TaxonName = TAXON_NAME, StartDate = STARTDATE, ParentName = PARENT_NAME)
 
 #### CPR PHYTO ABUND SPECIES ####
