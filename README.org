@@ -1,4 +1,11 @@
 #+TITLE: Readme
+# Copyright 2017-2024 Philip Dyer and Claire Davies
+# SPDX-License-Identifier: GPL-3.0-only
+
+Code and data in this folder are made available for reproducing the thesis ~Novel methods for developing large-scale, data-driven, biologically informed bioregionalisations~.
+
+For updates to this code, see	https://github.com/MathMarEcol/aus_cpr_for_bioregions
+
 
 * Phytoplankton and Zooplankton CPR data around Australia
 :PROPERTIES:
