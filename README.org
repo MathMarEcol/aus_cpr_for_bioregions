@@ -52,3 +52,5 @@ zoo_df <- load_zoo_data(root_dir)
 
 
 #+end_src
+
+This work © 2024 by Philip Dyer is licensed under CC BY 4.0
