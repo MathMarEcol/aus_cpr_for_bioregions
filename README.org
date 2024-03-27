@@ -2,6 +2,20 @@
 # Copyright 2017-2024 Philip Dyer and Claire Davies
 # SPDX-License-Identifier: GPL-3.0-only
 
+* Licenses
+
+Source code is © 2017-2024 by Philip Dyer and Claire Davies, and is licensed under GPL-3.0-only.
+
+Documentation © 2017-2024 by Philip Dyer and Claire Davies, and is licensed under CC-BY-4.0.
+
+All data in this repository is contained in CSV files.
+
+Data were sourced from Australia’s Integrated Marine Observing System (IMOS) – IMOS is enabled by the National Collaborative Research Infrastructure Strategy (NCRIS). It is operated by a consortium of institutions as an unincorporated joint venture, with the University of Tasmania as Lead Agent.
+
+IMOS and AODN provided the data under the CC-BY-4.0 licence, the data was further processed by Claire Davies, and is provided here under the CC-BY-4.0 license with permission from Claire Davies.
+
+* Overview
+
 Code and data in this folder are made available for reproducing the thesis ~Novel methods for developing large-scale, data-driven, biologically informed bioregionalisations~.
 
 For updates to this code, see	https://github.com/MathMarEcol/aus_cpr_for_bioregions
@@ -52,5 +66,3 @@ zoo_df <- load_zoo_data(root_dir)
 
 
 #+end_src
-
-This work © 2024 by Philip Dyer is licensed under CC BY 4.0
